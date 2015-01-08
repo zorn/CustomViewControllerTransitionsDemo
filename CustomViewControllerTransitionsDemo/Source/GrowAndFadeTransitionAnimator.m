@@ -2,7 +2,8 @@
 #import "UIViewController+TransitionAnimatorAdditions.h"
 
 static NSTimeInterval const kDefaultDuration = 0.3;
-static CGFloat const kDefaultScaleFactor = 0.90;
+static CGFloat const kDefaultInitailScaleFactor = 0.80;
+static CGFloat const kDefaultFinalScaleFactor = 1.0;
 
 @implementation GrowAndFadeTransitionAnimator
 
@@ -19,7 +20,7 @@ static CGFloat const kDefaultScaleFactor = 0.90;
 
 - (id)init
 {
-    return [self initWithDuration:kDefaultDuration scaleFactor:kDefaultScaleFactor isAppearing:YES];
+    return [self initWithDuration:kDefaultDuration scaleFactor:kDefaultInitailScaleFactor isAppearing:YES];
 }
 
 #pragma mark - UIViewControllerAnimatedTransitioning
@@ -48,7 +49,7 @@ static CGFloat const kDefaultScaleFactor = 0.90;
         [containerView addSubview:toView];
         
         [UIView animateWithDuration:duration animations: ^{
-            toView.transform = CGAffineTransformMakeScale(1, 1);
+            toView.transform = CGAffineTransformMakeScale(kDefaultFinalScaleFactor, kDefaultFinalScaleFactor);
             toView.alpha = 1.0;
         } completion: ^(BOOL finished) {
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
@@ -58,7 +59,7 @@ static CGFloat const kDefaultScaleFactor = 0.90;
 
         toView.frame = initialFrame;
         fromView.frame = initialFrame;
-        fromView.transform = CGAffineTransformMakeScale(1, 1);
+        fromView.transform = CGAffineTransformMakeScale(kDefaultFinalScaleFactor, kDefaultFinalScaleFactor);
 
         [containerView addSubview:toView];
         [containerView sendSubviewToBack:toView];
