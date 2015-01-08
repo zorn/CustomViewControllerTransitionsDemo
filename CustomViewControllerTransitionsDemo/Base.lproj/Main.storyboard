@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--Base View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="BaseViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QxX-gy-kCf">
+                                <rect key="frame" x="91" y="510" width="138" height="38"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                <state key="normal" title="Launch Modal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="HXT-9F-DU7" kind="modal" identifier="launchModal" id="mwh-aV-X9x"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Base View" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdv-Oh-gqL">
+                                <rect key="frame" x="16" y="80" width="288" height="60"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="vdv-Oh-gqL" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="60" id="6um-ZN-tx6"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="QxX-gy-kCf" secondAttribute="bottom" constant="20" id="Ufu-5G-K7r"/>
+                            <constraint firstAttribute="centerX" secondItem="QxX-gy-kCf" secondAttribute="centerX" id="bCX-jN-Hw3"/>
+                            <constraint firstItem="vdv-Oh-gqL" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="iyB-fR-vlX"/>
+                            <constraint firstAttribute="trailing" secondItem="vdv-Oh-gqL" secondAttribute="trailing" constant="16" id="meb-38-QBJ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131" y="527"/>
+        </scene>
+        <!--Modal View Controller-->
+        <scene sceneID="QW1-ew-F5e">
+            <objects>
+                <viewController id="HXT-9F-DU7" customClass="ModalViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6pX-78-RTr"/>
+                        <viewControllerLayoutGuide type="bottom" id="oDv-MB-tn8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iON-JZ-1JV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modal View" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2RS-Ib-lef">
+                                <rect key="frame" x="16" y="185" width="288" height="60"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L95-hB-HXJ">
+                                <rect key="frame" x="90" y="265" width="141" height="38"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                <state key="normal" title="Dismiss Modal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissModal:" destination="HXT-9F-DU7" eventType="touchUpInside" id="Bv5-tA-ZLF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.25098040699958801" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="L95-hB-HXJ" firstAttribute="top" secondItem="2RS-Ib-lef" secondAttribute="bottom" constant="20" id="Dv0-oT-VzT"/>
+                            <constraint firstAttribute="centerX" secondItem="L95-hB-HXJ" secondAttribute="centerX" id="GGe-gw-nRQ"/>
+                            <constraint firstAttribute="trailing" secondItem="2RS-Ib-lef" secondAttribute="trailing" constant="16" id="QRG-x8-0F0"/>
+                            <constraint firstAttribute="centerY" secondItem="L95-hB-HXJ" secondAttribute="centerY" id="RGF-gi-Na7"/>
+                            <constraint firstItem="2RS-Ib-lef" firstAttribute="leading" secondItem="iON-JZ-1JV" secondAttribute="leading" constant="16" id="ZcE-ov-mru"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="wB3-6R-PGE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uu7-UA-M85" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="527" y="527"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
