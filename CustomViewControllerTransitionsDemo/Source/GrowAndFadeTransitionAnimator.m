@@ -7,12 +7,13 @@ static CGFloat const kDefaultFinalScaleFactor = 1.0;
 
 @implementation GrowAndFadeTransitionAnimator
 
-- (instancetype)initWithDuration:(NSTimeInterval)duration scaleFactor:(CGFloat)scaleFactor isAppearing:(BOOL)isAppearing
+- (instancetype)initWithDuration:(NSTimeInterval)duration initialScaleFactor:(CGFloat)initialScaleFactor finalScaleFactor:(CGFloat)finalScaleFactor isAppearing:(BOOL)isAppearing;
 {
     self = [super init];
     if (self) {
         _duration = duration;
-        _scaleFactor = scaleFactor;
+        _initialScaleFactor = initialScaleFactor;
+        _finalScaleFactor = finalScaleFactor;
         _appearing = isAppearing;
     }
     return self;
@@ -20,7 +21,7 @@ static CGFloat const kDefaultFinalScaleFactor = 1.0;
 
 - (id)init
 {
-    return [self initWithDuration:kDefaultDuration scaleFactor:kDefaultInitailScaleFactor isAppearing:YES];
+    return [self initWithDuration:kDefaultDuration initialScaleFactor:kDefaultInitailScaleFactor finalScaleFactor:kDefaultFinalScaleFactor isAppearing:YES];
 }
 
 #pragma mark - UIViewControllerAnimatedTransitioning
@@ -44,7 +45,7 @@ static CGFloat const kDefaultFinalScaleFactor = 1.0;
     if (self.appearing) {
         
         toView.frame = initialFrame;
-        toView.transform = CGAffineTransformMakeScale(self.scaleFactor, self.scaleFactor);
+        toView.transform = CGAffineTransformMakeScale(self.initialScaleFactor, self.initialScaleFactor);
         toView.alpha = 0.0;
         [containerView addSubview:toView];
         
@@ -65,7 +66,7 @@ static CGFloat const kDefaultFinalScaleFactor = 1.0;
         [containerView sendSubviewToBack:toView];
         
         [UIView animateWithDuration:duration animations: ^{
-            fromView.transform = CGAffineTransformMakeScale(self.scaleFactor, self.scaleFactor);
+            fromView.transform = CGAffineTransformMakeScale(self.initialScaleFactor, self.initialScaleFactor);
             fromView.alpha = 0.0;
         } completion: ^(BOOL finished) {
             [fromView removeFromSuperview];
