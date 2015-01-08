@@ -8,6 +8,11 @@
 
 #pragma mark - UIViewController
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    NSLog(@"-[%@ viewDidAppear:]", NSStringFromClass([self class]));
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"launchModal"]) {
